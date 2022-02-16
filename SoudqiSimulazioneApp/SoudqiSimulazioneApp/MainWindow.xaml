@@ -1,0 +1,22 @@
+﻿<Window x:Class="SoudqiSimulazioneApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SoudqiSimulazioneApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="600">
+    <StackPanel>
+        <Button x:Name="BtnLeggiFile" Content="Leggi da file" Click="BtnLeggiFile_Click"/>
+        <DataGrid x:Name="DgGiornale" Height="150"/>
+        <Separator Height="15"/>
+        <Label Content="Inserisci il nome di un'atleta:"/>
+        <TextBox x:Name="TxtAtleta" Text="" TextWrapping="Wrap" Height="25" GotFocus="TxtAtleta_GotFocus"/>
+        <Label Content="Inserisci il nome di una città:"/>
+        <TextBox x:Name="TxtCittà" Text="" TextWrapping="Wrap" Height="25" GotFocus="TxtCittà_GotFocus"/>
+        <Button x:Name="BtnTempoImpiegato" Content="Visualizza tempo impiegato" Height="25" Click="BtnTempoImpiegato_Click"/>
+        <Label x:Name="LblTempoImpiegato" Content="" Height="20"/>
+        <Separator Height="25"/>
+
+    </StackPanel>
+</Window>
