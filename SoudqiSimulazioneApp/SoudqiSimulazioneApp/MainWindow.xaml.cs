@@ -83,5 +83,114 @@ namespace SoudqiSimulazioneApp
                 }
             }
         }
+
+        
+
+        private void BtnPartecipanti_Click(object sender, RoutedEventArgs e)
+        {
+            string città = TxtCittà.Text;
+
+            string partecipanti = string.Empty;
+
+            foreach (var lista in dati.Collezione)
+            {
+                if(città == lista.CittàAppartenenza)
+                {
+                    partecipanti += lista.nomeArtista + " - ";
+                    LblPartecipanti.Content = "I partecipanti di questa città sono: " + partecipanti;
+                }
+                
+            }
+
+        }
+
+        private void TxtNomeArtista2_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TxtNomeArtista2.Text = "";
+        }
+
+        private void TxtSocietà2_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TxtSocietà2.Text = "";
+        }
+
+        private void TxtTempo2_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TxtTempo2.Text = "";
+        }
+
+        private void TxtCittà2_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TxtCittà2.Text = "";
+        }
+
+        private void BtnAggiungi_Click(object sender, RoutedEventArgs e)
+        {
+            string nomeArtista = TxtNomeArtista2.Text;
+            string società = TxtSocietà2.Text;
+            int tempo = int.Parse(TxtTempo2.Text);
+            string città = TxtCittà2.Text;
+
+            var documento = new Atleta();
+            documento.nomeArtista = nomeArtista;
+            documento.società = società;
+            documento.tempo = tempo;
+            documento.CittàAppartenenza = città;
+
+            dati.AggiungiDati(documento);
+
+            DgGiornale.Items.Refresh();
+
+            dati.salva();
+        }
+
+        private void TxtAtleta3_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TxtAtleta3.Text = "";
+        }
+
+        private void TxtCittà3_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TxtCittà3.Text = "";
+        }
+
+        private void BtnStampa_Click(object sender, RoutedEventArgs e)
+        {
+            // da riguardare
+            string atleta = TxtAtleta3.Text;
+            string città = TxtCittà3.Text;
+
+            string durataMinore = "";
+
+            foreach(var lista in dati.Collezione)
+            {
+                 if (atleta == lista.nomeArtista && città == lista.CittàAppartenenza)
+                 {
+                    durataMinore = Convert.ToString(lista.tempo);
+                 }  
+            }
+
+            string elenco = "";
+
+            foreach (var lista in dati.Collezione)
+            {
+                if (dati.CalcolaTempo(Convert.ToString(lista.tempo)) < dati.CalcolaTempo(durataMinore) && lista.CittàAppartenenza == città)
+                {
+                    elenco += lista.nomeArtista + "\n";
+                }
+            }
+
+
+            string nomeFile = atleta + "%" + durataMinore + ".txt";
+
+            using (FileStream flusso = new FileStream(nomeFile, FileMode.Create, FileAccess.Write))
+            {
+                StreamWriter scrittore = new StreamWriter(flusso);
+
+                scrittore.WriteLine(elenco);
+                scrittore.Flush();
+            }
+
+        }
     }
 }

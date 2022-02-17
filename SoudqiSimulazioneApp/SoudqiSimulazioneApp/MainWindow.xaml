@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SoudqiSimulazioneApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="600">
+        Title="MainWindow" Height="800" Width="600">
     <StackPanel>
         <Button x:Name="BtnLeggiFile" Content="Leggi da file" Click="BtnLeggiFile_Click"/>
         <DataGrid x:Name="DgGiornale" Height="150"/>
@@ -15,8 +15,24 @@
         <Label Content="Inserisci il nome di una città:"/>
         <TextBox x:Name="TxtCittà" Text="" TextWrapping="Wrap" Height="25" GotFocus="TxtCittà_GotFocus"/>
         <Button x:Name="BtnTempoImpiegato" Content="Visualizza tempo impiegato" Height="25" Click="BtnTempoImpiegato_Click"/>
-        <Label x:Name="LblTempoImpiegato" Content="" Height="20"/>
+        <Button x:Name="BtnPartecipanti" Content="Visualizza i partecipanti di questa città" Height="25" Click="BtnPartecipanti_Click"/>
+        <Label x:Name="LblTempoImpiegato" Content="" Height="27"/>
+        <Label x:Name="LblPartecipanti" Content="" Height="27"/>
+        <Label Content="Inserisci il nome di un'atleta da aggiungere al file"/>
+        <TextBox x:Name="TxtNomeArtista2" Text="" TextWrapping="Wrap" Height="25" GotFocus="TxtNomeArtista2_GotFocus"/>
+        <Label Content="Inserisci il nome di una società da aggiungere al file" Height="25"/>
+        <TextBox x:Name="TxtSocietà2" Text="" TextWrapping="Wrap" Height="25" GotFocus="TxtSocietà2_GotFocus"/>
+        <Label Content="Inserisci un tempo in minuti da aggiungere al file" Height="25"/>
+        <TextBox x:Name="TxtTempo2" Text="" TextWrapping="Wrap" Height="25" GotFocus="TxtTempo2_GotFocus"/>
+        <Label Content="Inserisci il nome di una città da aggiungere al file" Height="25"/>
+        <TextBox x:Name="TxtCittà2" Text="" TextWrapping="Wrap" Height="25" GotFocus="TxtCittà2_GotFocus"/>
+        <Button x:Name="BtnAggiungi" Content="Aggiungi dati al file" Height="25" Click="BtnAggiungi_Click"/>
         <Separator Height="25"/>
+        <Label Content="Inserisci il nome di un'atleta" Height="25"/>
+        <TextBox x:Name="TxtAtleta3" Text="" TextWrapping="Wrap" MaxHeight="25" GotFocus="TxtAtleta3_GotFocus"/>
+        <Label Content="Inserisci il nome di una città" Height="25"/>
+        <TextBox x:Name="TxtCittà3" Text="" TextWrapping="Wrap" Height="25" GotFocus="TxtCittà3_GotFocus"/>
+        <Button x:Name="BtnStampa" Content="Stampa nuovo file" Height="27" Click="BtnStampa_Click"/>
 
     </StackPanel>
 </Window>

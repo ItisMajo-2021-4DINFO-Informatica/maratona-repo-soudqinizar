@@ -33,6 +33,19 @@ namespace SoudqiSimulazioneApp
             return minuti;
         }
 
+        public void salva()
+        {
+            using (FileStream flusso = new FileStream("dati.txt", FileMode.Open, FileAccess.Write))
+            {
+                StreamWriter scrittore = new StreamWriter(flusso);
+                foreach (var documento2 in Collezione)
+                {
+                    scrittore.WriteLine(documento2.ConcatenaValori());
+                }
+                scrittore.Flush();
+            }
+        }
+
 
 
     }
